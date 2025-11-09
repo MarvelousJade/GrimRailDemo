@@ -5,7 +5,7 @@ A technical demonstration project showcasing advanced Unreal Engine 5.6 gameplay
 ## 🎥 Video Showcase
 
 <!-- Replace YOUR_VIDEO_ID with your actual YouTube video ID -->
-[![GrimRailDemo Showcase](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![GrimRailDemo Showcase](https://img.youtube.com/vi/x7-9UwSLl3A/maxresdefault.jpg)](https://youtu.be/x7-9UwSLl3A)
 
 *Click to watch the full demonstration*
 
