@@ -28,6 +28,13 @@ protected:
 	/** Pointer to the UI widget */
 	TObjectPtr<UHorrorUI> HorrorUI;
 
+	/** Type of notebook widget to spawn */
+	UPROPERTY(EditAnywhere, Category="Horror|UI")
+	TSubclassOf<UUserWidget> NotebookWidgetClass;
+
+	/** Pointer to the notebook widget */
+	TObjectPtr<UUserWidget> NotebookWidget;
+
 public:
 
 	/** Constructor */
@@ -58,5 +65,9 @@ protected:
 
 	/** Input mapping context setup */
 	virtual void SetupInputComponent() override;
+
+	/** Called when the notebook is toggled open/closed */
+	UFUNCTION()
+	void OnNotebookToggled(bool bIsOpen);
 
 };

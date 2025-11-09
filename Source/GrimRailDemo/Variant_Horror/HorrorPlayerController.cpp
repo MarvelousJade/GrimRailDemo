@@ -51,7 +51,7 @@ void AHorrorPlayerController::OnPossess(APawn* aPawn)
 		// set up the UI for the character
 		if (AHorrorCharacter* HorrorCharacter = Cast<AHorrorCharacter>(aPawn))
 		{
-			// create the UI
+			// create the HUD UI
 			if (!HorrorUI)
 			{
 				HorrorUI = CreateWidget<UHorrorUI>(this, HorrorUIClass);
@@ -59,9 +59,23 @@ void AHorrorPlayerController::OnPossess(APawn* aPawn)
 			}
 
 			HorrorUI->SetupCharacter(HorrorCharacter);
+
+			// create the notebook UI
+			if (NotebookWidgetClass && !NotebookWidget)
+			{
+				NotebookWidget = CreateWidget<UUserWidget>(this, NotebookWidgetClass);
+				if (NotebookWidget)
+				{
+					NotebookWidget->AddToViewport(10); // Higher Z-order than HUD
+					NotebookWidget->SetVisibility(ESlateVisibility::Hidden);
+
+					// Bind to notebook toggle delegate
+					HorrorCharacter->OnNotebookToggled.AddDynamic(this, &AHorrorPlayerController::OnNotebookToggled);
+				}
+			}
 		}
 	}
-	
+
 }
 
 void AHorrorPlayerController::SetupInputComponent()
@@ -88,5 +102,30 @@ void AHorrorPlayerController::SetupInputComponent()
 				}
 			}
 		}
-	}	
+	}
+}
+
+void AHorrorPlayerController::OnNotebookToggled(bool bIsOpen)
+{
+	if (NotebookWidget)
+	{
+		if (bIsOpen)
+		{
+			NotebookWidget->SetVisibility(ESlateVisibility::Visible);
+
+			// Show mouse cursor and enable UI mode
+			SetShowMouseCursor(true);
+			SetInputMode(FInputModeGameAndUI());
+		}
+		else
+		{
+			NotebookWidget->SetVisibility(ESlateVisibility::Hidden);
+
+			// Hide mouse cursor and return to game mode
+			SetShowMouseCursor(false);
+			SetInputMode(FInputModeGameOnly());
+		}
+
+		UE_LOG(LogTemp, Log, TEXT("HorrorPlayerController: Notebook toggled %s"), bIsOpen ? TEXT("open") : TEXT("closed"));
+	}
 }
