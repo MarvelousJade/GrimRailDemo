@@ -79,7 +79,7 @@ void AHorrorCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 			// Notebook
 			if (ToggleNotebookAction)
 			{
-				EnhancedInputComponent->BindAction(ToggleNotebookAction, ETriggerEvent::Started, this, &AHorrorCharacter::DoToggleNotebook);
+				EnhancedInputComponent->BindAction(ToggleNotebookAction, ETriggerEvent::Triggered, this, &AHorrorCharacter::DoToggleNotebook);
 			}
 		}
 	}
