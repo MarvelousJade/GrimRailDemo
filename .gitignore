@@ -1,0 +1,90 @@
+# Visual Studio 2015/2017/2019/2022 cache/options directory
+.vs/
+*.suo
+*.user
+*.sln.docstates
+*.userprefs
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Unreal Engine cache and intermediate files
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+*.VC.db
+*.opensdf
+*.opendb
+*.sdf
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Precompiled Assets
+SourceArt/**/*.psd
+SourceArt/**/*.tga
+
+# Binary Files
+*.uasset
+*.umap
+
+# Configuration files
+Saved/*
+
+# Exceptions to above rules
+!Config/**
+!Content/**/*.uasset
+!Content/**/*.umap
+
+# Cache files for the editor to use
+DerivedDataCache/*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Starter Content (optional - uncomment if you want to exclude it)
+# Content/StarterContent/**
